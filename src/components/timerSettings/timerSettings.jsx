@@ -4,13 +4,13 @@ const TimerSettings = ({name, value, setValue}) => {
     let increaseValue = (e) => {
         let currentInput = e.target.closest(".timer-settings").querySelector('input');
         if (currentInput.value < 60) currentInput.value++;
-        setValue({target: {value: currentInput.value}});
+        setValue({target: currentInput});
     }
     let decreaseValue = (e) => {
         let currentInput = e.target.closest(".timer-settings").querySelector('input');
         if (currentInput.value > 1) {
             currentInput.value--;
-            setValue({target: {value: currentInput.value}});
+            setValue({target: currentInput});
         }
     }
     return (

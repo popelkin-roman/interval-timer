@@ -14,27 +14,26 @@ function App() {
   const [timerStage, setTimerStage] = useState('session');
 
 
-  const changeBreak = (event) => {
+  const changeTime = (event) => {
     setIsPlaying(false);
     let time = event.target.value;
+    let inputId = event.target.id;
     if (time < 1) time = 1;
     if (time > 60) time = 60;
-    setBreakTime(time);
-    if (timerStage === 'break') {
-      setMins(time);
-      setSecs(0);
+    if (inputId==='break-length') {
+      setBreakTime(time);
+      if (timerStage === 'break') {
+        setMins(time);
+        setSecs(0);
+      }
+    } else if ( inputId==='session-length') {
+      setSessionTime(time);
+      if (timerStage === 'session'){
+        setMins(time);
+        setSecs(0);
+      }
     }
-  }
-  const changeSession = (event) => {
-    setIsPlaying(false);
-    let time = event.target.value;
-    if (time < 1) time = 1;
-    if (time > 60) time = 60;
-    setSessionTime(event.target.value);
-    if (timerStage === 'session') {
-      setMins(time);
-      setSecs(0);
-    }
+
   }
   
   const resetTimer = () => {
@@ -83,19 +82,17 @@ const showTime = () => {
   return `${mm}:${ss}`;
 }
 
-const playPause = (e) => {
+const playPause = () => {
   setIsPlaying(!isPlaying);
 }
 
-
-
   return (
     <div className="App">
-      <TimerSettings name="break" value={breakTime} setValue={changeBreak} ></TimerSettings>
-      <TimerSettings name="session" value={sessionTime} setValue={changeSession} ></TimerSettings>
+      <TimerSettings name="break" value={breakTime} setValue={changeTime} ></TimerSettings>
+      <TimerSettings name="session" value={sessionTime} setValue={changeTime} ></TimerSettings>
 
       <div className='timer'>
-        <span id="timer-label">{timerStage}</span>
+        <span id="timer-label">{timerStage[0].toUpperCase() + timerStage.slice(1,)}</span>
         <div id="time-left">{showTime()}</div>
       </div>
 
