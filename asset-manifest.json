@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/interval-timer/static/css/main.ff1bcaf5.css",
+    "main.js": "/interval-timer/static/js/main.33e67cc3.js",
+    "index.html": "/interval-timer/index.html",
+    "main.ff1bcaf5.css.map": "/interval-timer/static/css/main.ff1bcaf5.css.map",
+    "main.33e67cc3.js.map": "/interval-timer/static/js/main.33e67cc3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ff1bcaf5.css",
+    "static/js/main.33e67cc3.js"
+  ]
+}
