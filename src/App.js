@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import TimerSettings from './components/timerSettings/timerSettings';
+import TimerSetting from './components/timerSettings/timerSetting';
 let interval;
 let initialBreak = 5;
 let initialSession = 25;
@@ -88,20 +88,25 @@ const playPause = () => {
 
   return (
     <div className="App">
-      <TimerSettings name="break" value={breakTime} setValue={changeTime} ></TimerSettings>
-      <TimerSettings name="session" value={sessionTime} setValue={changeTime} ></TimerSettings>
+      <div className={`timer-container ${timerStage === "session" ? "primary-bg" : "secondary-bg"}`}>
 
       <div className='timer'>
-        <span id="timer-label">{timerStage[0].toUpperCase() + timerStage.slice(1,)}</span>
-        <div id="time-left">{showTime()}</div>
+        <div id="timer-label" className={timerStage === "session" ? "primary-label" : "secondary-label"}>{timerStage[0].toUpperCase() + timerStage.slice(1,)}</div>
+        <div id="time-left" className={timerStage === "session" ? "primary" : "secondary"}>{showTime()}</div>
       </div>
 
-      <div className='time-controls'>
+      <div className={`timer-controls ${timerStage === "session" ? "primary" : "secondary"}`}>
         <button id="start_stop" onClick={playPause}><i className={!isPlaying ? "fa fa-play-circle-o": "fa fa-pause-circle-o"} aria-hidden="true"></i></button>
         <button id="reset" onClick={resetTimer}><i className="fa fa-stop-circle-o" aria-hidden="true"></i></button>
       </div>
 
+      <div className={`timer-settings ${timerStage === "session" ? "primary" : "secondary"}`}>
+        <TimerSetting name="break" value={breakTime} setValue={changeTime} timerStage={timerStage} ></TimerSetting>
+        <TimerSetting name="session" value={sessionTime} setValue={changeTime} timerStage={timerStage} ></TimerSetting>
+      </div>
+
       <audio src='./src/beep.wav' id="beep"></audio>
+    </div>
     </div>
   );
 }

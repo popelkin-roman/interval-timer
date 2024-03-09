@@ -1,3 +1,102 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, #FD7F83, 50%, #ABCCFF);
+  height: 100%;
+  font-family: "Mulish", sans-serif;
 }
+
+.primary-bg {
+  background-color: #F3F3F3;
+}
+.secondary-bg {
+  background-color: #EE616A;
+}
+
+.primary {
+  color: #FD7F83;
+}
+.secondary {
+  color: #F3F3F3;
+}
+
+.primary-label {
+  color: #0E0E0E;
+}
+.secondary-label {
+  color: #BCC6FF;
+}
+
+.primary-sublabel {
+  color: #A0A0A0;
+}
+.secondary-sublabel {
+  color: #F3F3F3;
+}
+
+.timer-container {
+  border-radius: 50px;
+  width: 500px;
+  height: 600px;
+}
+
+#timer-label {
+  margin-top: 7rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  /* color: #0E0E0E; */
+}
+
+#time-left {
+  font-size: 7rem;
+  /* color: #FD7F83; */
+}
+
+.timer-settings {
+  display: flex;
+  margin-top: 3rem;
+}
+
+.timer-setter {
+  display: flex;
+  justify-content: center;
+}
+
+.timer-controls {
+  margin-top: 2rem;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+#start_stop, #reset {
+  background: transparent;
+  font-size: 3rem;
+  border: none;
+  color: inherit;
+  /* color: #FD7F83; */
+}
+
+#break-decrement, #break-increment, #session-decrement, #session-increment {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: inherit;
+  /* color: #FD7F83; */
+}
+
+#break-length, #session-length {
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-size: 3rem;
+  width: 30%;
+  color: inherit;
+  /* color: #FD7F83; */
+}
+
+/* #break-label, #session-label {
+  color: #A0A0A0;
+} */
